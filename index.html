@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="This is where your description goes">
+	<meta name="keywords" content="one, two, three">
+
+	<title>Crypto Price Tracker</title>
+
+	<!-- external CSS link -->
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<header>
+		<h1>CoinCloud</h1>
+		<img id="cloud" src="./img/cloudLogo.png" alt="">
+	</header>
+
+	<div id="search"><input type="text" name="" value="XMR">
+		<button type="button" name="button">Search</button>
+	</div>
+
+
+	<!-- <section>
+		<h2>Coin:</h2>
+		<span id="coin"></span><img src="" alt="">
+		<h2>Ticker:</h2>
+		<span id="symbol"></span>
+		<h2>Price:</h2>
+		<span>$</span><span id="price"></span>
+		<h2>Market Cap:</h2>
+		<span>$</span><span id="cap"></span><span id="bOrM"></span>
+		<h2>24hr % Change</h2>
+		<span id="24hr"></span><span>%</span>
+	</section> -->
+
+
+	<table>
+		<tr>
+			<th class="num">#</th>
+			<th class="name">Name</th>
+			<th class="ticker">Ticker</th>
+			<th class="price">Price</th>
+			<th class="24">24hr %</th>
+			<th class="cap">Cap</th>
+		</tr>
+		<tr>
+			<td class="number">1</td>
+			<td class="center"><img id="logo" src="" alt=""><span id="coin"></span></td>
+			<td class="ticker"><span id="symbol"></span></td>
+			<td><span>$</span><span id="price"></span></td>
+			<td class="change"><span id="24hr"></span><span>%</span></td>
+			<td class="cap"><span>$</span><span id="cap"></span><span id="bOrM"></span></td>
+		</tr>
+
+	</table>
+
+	<h2>Top 10:</h2>
+
+	<table>
+		<tr>
+			<th class="num">#</th>
+			<th class="name">Name</th>
+			<th class="ticker">Ticker</th>
+			<th>Price</th>
+			<th>24hr %</th>
+			<th class="cap">Cap</th>
+		</tr>
+		<tr>
+			<td class="number">1</td>
+			<td class="center"><img id="logo0" src="" alt=""><span id="coin0"></span></td>
+			<td class="ticker"><span id="symbol0"></span></td>
+			<td><span>$</span><span id="price0"></span></td>
+			<td id="change0"><span id="24hr0"></span><span>%</span></td>
+			<td class="cap"><span>$</span><span id="cap0"></span><span id="bOrM0"></span></td>
+		</tr>
+		<tr>
+			<td class="number">2</td>
+			<td class="center"><img id="logo1" src="" alt=""><span id="coin1"></span></td>
+			<td class="ticker"><span id="symbol1"></span></td>
+			<td><span>$</span><span id="price1"></span></td>
+			<td id="change1"><span id="24hr1"></span><span>%</span></td>
+			<td class="cap"><span>$</span><span id="cap1"></span><span id="bOrM1"></span></td>
+		</tr>
+		<tr>
+			<td class="number">3</td>
+			<td class="center"><img id="logo2" src="" alt=""><span id="coin2"></span></td>
+			<td class="ticker"><span id="symbol2"></span></td>
+			<td><span>$</span><span id="price2"></span></td>
+			<td id="change2"><span id="24hr2"></span><span>%</span></td>
+			<td class="cap"><span>$</span><span id="cap2"></span><span id="bOrM2"></span></td>
+		</tr>
+		<tr>
+			<td class="number">4</td>
+			<td class="center"><img id="logo3" src="" alt=""><span id="coin3"></span></td>
+			<td class="ticker"><span id="symbol3"></span></td>
+			<td><span>$</span><span id="price3"></span></td>
+			<td id="change3"><span id="24hr3"></span><span>%</span></td>
+			<td class="cap"><span>$</span><span id="cap3"></span><span id="bOrM3"></span></td>
+		</tr>
+		<tr>
+			<td class="number">5</td>
+			<td class="center"><img id="logo4" src="" alt=""><span id="coin4"></span></td>
+			<td class="ticker"><span id="symbol4"></span></td>
+			<td><span>$</span><span id="price4"></span></td>
+			<td id="change4"><span id="24hr4"></span><span>%</span></td>
+			<td class="cap"><span>$</span><span id="cap4"></span><span id="bOrM4"></span></td>
+		</tr>
+		<tr>
+			<td class="number">6</td>
+			<td class="center"><img id="logo5" src="" alt=""><span id="coin5"></span></td>
+			<td class="ticker"><span id="symbol5"></span></td>
+			<td><span>$</span><span id="price5"></span></td>
+			<td id="change5"><span id="24hr5"></span><span>%</span></td>
+			<td class="cap"><span>$</span><span id="cap5"></span><span id="bOrM5"></span></td>
+		</tr>
+		<tr>
+			<td class="number">7</td>
+			<td class="center"><img id="logo6" src="" alt=""><span id="coin6"></span></td>
+			<td class="ticker"><span id="symbol6"></span></td>
+			<td><span>$</span><span id="price6"></span></td>
+			<td id="change6"><span id="24hr6"></span><span>%</span></td>
+			<td class="cap"> <span>$</span><span id="cap6"></span><span id="bOrM6"></span></td>
+		</tr>
+		<tr>
+			<td class="number">8</td>
+			<td class="center"><img id="logo7" src="" alt=""><span id="coin7"></span></td>
+			<td class="ticker"><span id="symbol7"></span></td>
+			<td><span>$</span><span id="price7"></span></td>
+			<td id="change7"><span id="24hr7"></span><span>%</span></td>
+			<td class="cap"><span>$</span><span id="cap7"></span><span id="bOrM7"></span></td>
+		</tr>
+		<tr>
+			<td class="number">9</td>
+			<td class="center"><img id="logo8" src="" alt=""><span id="coin8"></span></td>
+			<td class="ticker"><span id="symbol8"></span></td>
+			<td><span>$</span><span id="price8"></span></td>
+			<td id="change8"><span id="24hr8"></span><span>%</span></td>
+			<td class="cap"><span>$</span><span id="cap8"></span><span id="bOrM8"></span></td>
+		</tr>
+		<tr>
+			<td class="number">10</td>
+			<td class="center"><img id="logo9" src="" alt=""><span id="coin9"></span></td>
+			<td class="ticker"><span id="symbol9"></span></td>
+			<td><span>$</span><span id="price9"></span></td>
+			<td id="change9"><span id="24hr9"></span><span>%</span></td>
+			<td class="cap"><span>$</span><span id="cap9"></span><span id="bOrM9"></span></td>
+		</tr>
+
+	</table>
+
+
+
+
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>
