@@ -50,6 +50,10 @@ button {
   /* border: 1px solid black */
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 body {
   padding: 0px 20px;
   color: rgb(0, 0, 0);
