@@ -44,7 +44,7 @@ h1 {
 button {
   background-color: #39daa2;
   border: none;
-  /* height: 30px; */
+  color: black;
   padding: 10px;
   border-radius: 5px;
   /* border: 1px solid black */
