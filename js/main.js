@@ -1,5 +1,3 @@
-//add conditions for css styling of green/red depending on + or - 24hr change
-
 document.querySelector("button").addEventListener("click", changeCoin);
 document.querySelector("button").addEventListener("click", search);
 
@@ -134,5 +132,3 @@ function updateAssetsUI(data) {
 
 getAssets();
 search();
-
-// Add conditions for CSS styling of green/red depending on + or - 24hr change
