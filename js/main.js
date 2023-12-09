@@ -132,3 +132,10 @@ function updateAssetsUI(data) {
 
 getAssets();
 search();
+
+// function darkMode() {
+//   document.body.classList.toggle("dark-mode");
+//   document.querySelector("input").classList.toggle("dark-mode");
+// }
+
+// darkMode();
