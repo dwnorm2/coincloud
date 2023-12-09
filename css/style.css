@@ -133,3 +133,19 @@ th {
     flex-direction: column;
   }
 }
+
+/* dark mode */
+/* use new logo with black background */
+
+/* body {
+  background-color: rgb(0, 0, 0);
+}
+
+* {
+  color: white;
+}
+
+input {
+  background-color: black;
+  color: white;
+} */
