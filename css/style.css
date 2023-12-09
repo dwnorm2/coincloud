@@ -17,6 +17,12 @@ img {
   height: 30px;
 }
 
+#err {
+  margin-top: 10px;
+  /* margin-bottom: -15px; */
+  color: rgb(254, 46, 46);
+}
+
 #cloud {
   width: 80px;
   height: auto;
@@ -42,6 +48,7 @@ button {
 
 button:hover {
   cursor: pointer;
+  background-color: #63e3b6;
 }
 
 body {

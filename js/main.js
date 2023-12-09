@@ -46,8 +46,11 @@ function search() {
       if (data.data && data.data.length > 0) {
         // Valid response for ticker search
         updateUI(data.data[0]);
+        document.getElementById("err").textContent = "";
       } else {
-        console.log("Cryptocurrency not found");
+        // let err = document.createTextNode("Cryptocurrency not found");
+        // alert("Cryptocurrency not found");
+        document.getElementById("err").textContent = "Cryptocurrency not found";
       }
     })
     .catch((err) => {
