@@ -54,7 +54,7 @@ function search() {
       console.log(`error ${err}`);
     });
 
-  // setTimeout(search, 1000);
+  // setTimeout(search, 5000);
 }
 
 function updateUI(data) {
@@ -95,7 +95,7 @@ function getAssets() {
       console.log(`error ${err}`);
     });
 
-  // setTimeout(search, 1000);
+  // setTimeout(search, 5000);
 }
 
 function updateAssetsUI(data) {
@@ -115,7 +115,6 @@ function updateAssetsUI(data) {
       data[i].changePercent24Hr
     ).toFixed(2);
     let percent = Number(data[i].changePercent24Hr).toFixed(2);
-    console.log(percent);
     if (percent > 0) {
       document.getElementById(`change${i}`).style.background = "#39daa2";
     }
@@ -128,7 +127,6 @@ function updateAssetsUI(data) {
       `logo${i}`
     ).src = `https://assets.coincap.io/assets/icons/${ticker.toLowerCase()}@2x.png`;
   }
-  // console.log(assets);
 }
 
 getAssets();
