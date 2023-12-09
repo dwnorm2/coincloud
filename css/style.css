@@ -104,11 +104,13 @@ th {
 .center {
   display: flex;
   align-items: center;
-  border: none;
+  /* border: 1px solid red; */
+
+  /* border: none;
   border: 1px solid rgb(196, 196, 196);
   border-top: none;
   border-left: none;
-  border-right: none;
+  border-right: none; */
 }
 
 /* tr:nth-child(even) {
