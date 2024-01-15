@@ -107,7 +107,6 @@ function getAssets() {
 }
 
 function updateAssetsUI(data) {
-  // Assuming your table has an id "coinTable", modify as needed
   let table = document.getElementById("coinTable");
 
   for (let i = 0; i < data.length; i++) {
