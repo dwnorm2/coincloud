@@ -83,9 +83,10 @@ function updateUI(data) {
     document.querySelector(".change").style.background = "rgb(254, 46, 46)";
   }
   let ticker = data.symbol;
-  document.getElementById(
-    "logo"
-  ).src = `https://assets.coincap.io/assets/icons/${ticker.toLowerCase()}@2x.png`;
+  document.getElementById("logo").src =
+    ticker == "IOTA"
+      ? "./img/iota.png"
+      : `https://assets.coincap.io/assets/icons/${ticker.toLowerCase()}@2x.png`;
 }
 
 function formatNumber(value, decimalPlaces) {
@@ -126,9 +127,12 @@ function updateAssetsUI(data) {
 
     let logoImg = document.createElement("img");
     logoImg.id = `logo${i}`;
-    logoImg.src = `https://assets.coincap.io/assets/icons/${data[
-      i
-    ].symbol.toLowerCase()}@2x.png`;
+    data[i].symbol == "IOTA"
+      ? (logoImg.src = "./img/iota.png")
+      : (logoImg.src = `https://assets.coincap.io/assets/icons/${data[
+          i
+        ].symbol.toLowerCase()}@2x.png`);
+
     logoImg.alt = `${data[i].symbol} logo`;
 
     let coinSpan = document.createElement("span");
@@ -144,7 +148,7 @@ function updateAssetsUI(data) {
       data[i].priceUsd,
       data[i].priceUsd > 1 ? 2 : 4
     );
-    cell24hr.textContent = formatNumber(data[i].changePercent24Hr, 2);
+    cell24hr.textContent = Number(data[i].changePercent24Hr).toFixed(2) + "%";
     cellCap.textContent = `${formatNumber(
       data[i].marketCapUsd /
         (data[i].marketCapUsd >= 1000000000 ? 1000000000 : 1000000),
