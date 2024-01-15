@@ -120,6 +120,10 @@ function updateAssetsUI(data) {
     let cell24hr = row.insertCell(4);
     let cellCap = row.insertCell(5);
 
+    cellNum.className = "num";
+    cellCap.className = "cap";
+    cellTicker.className = "ticker";
+
     cellNum.textContent = i + 1;
 
     let logoDiv = document.createElement("div");
