@@ -46,8 +46,6 @@ function search() {
         updateUI(data.data[0]);
         document.getElementById("err").textContent = "";
       } else {
-        // let err = document.createTextNode("Cryptocurrency not found");
-        // alert("Cryptocurrency not found");
         document.getElementById("err").textContent = "Cryptocurrency not found";
       }
     })
@@ -63,17 +61,21 @@ function updateUI(data) {
 
   document.getElementById("coin").textContent = data.name;
   document.getElementById("symbol").textContent = data.symbol;
-  document.getElementById("price").textContent = Number(data.priceUsd).toFixed(
+  document.getElementById("price").textContent = formatNumber(
+    data.priceUsd,
     data.priceUsd > 1 ? 2 : 4
   );
-  document.getElementById("cap").textContent = Number(
-    data.marketCapUsd / (data.marketCapUsd >= 1000000000 ? 1000000000 : 1000000)
-  ).toFixed(2);
+  document.getElementById("cap").textContent = formatNumber(
+    data.marketCapUsd /
+      (data.marketCapUsd >= 1000000000 ? 1000000000 : 1000000),
+    2
+  );
   document.getElementById("bOrM").textContent =
     data.marketCapUsd >= 1000000000 ? "B" : "M";
-  document.getElementById("24hr").textContent = Number(
-    data.changePercent24Hr
-  ).toFixed(2);
+  document.getElementById("24hr").textContent = formatNumber(
+    data.changePercent24Hr,
+    2
+  );
   if (Number(data.changePercent24Hr).toFixed(2) > 0) {
     document.querySelector(".change").style.background = "#39daa2";
   }
@@ -84,6 +86,10 @@ function updateUI(data) {
   document.getElementById(
     "logo"
   ).src = `https://assets.coincap.io/assets/icons/${ticker.toLowerCase()}@2x.png`;
+}
+
+function formatNumber(value, decimalPlaces) {
+  return `$${Number(value).toFixed(decimalPlaces)}`;
 }
 
 function getAssets() {
@@ -100,39 +106,63 @@ function getAssets() {
 }
 
 function updateAssetsUI(data) {
-  for (let i = 0; i < 10; i++) {
-    document.getElementById(`coin${i}`).textContent = data[i].name;
-    document.getElementById(`symbol${i}`).textContent = data[i].symbol;
-    document.getElementById(`price${i}`).textContent = Number(
-      data[i].priceUsd
-    ).toFixed(data[i].priceUsd > 1 ? 2 : 4);
-    document.getElementById(`cap${i}`).textContent = Number(
+  // Assuming your table has an id "coinTable", modify as needed
+  let table = document.getElementById("coinTable");
+
+  for (let i = 0; i < data.length; i++) {
+    let row = table.insertRow(-1);
+
+    let cellNum = row.insertCell(0);
+    let cellName = row.insertCell(1);
+    let cellTicker = row.insertCell(2);
+    let cellPrice = row.insertCell(3);
+    let cell24hr = row.insertCell(4);
+    let cellCap = row.insertCell(5);
+
+    cellNum.textContent = i + 1;
+
+    let logoDiv = document.createElement("div");
+    logoDiv.className = "center";
+
+    let logoImg = document.createElement("img");
+    logoImg.id = `logo${i}`;
+    logoImg.src = `https://assets.coincap.io/assets/icons/${data[
+      i
+    ].symbol.toLowerCase()}@2x.png`;
+    logoImg.alt = `${data[i].symbol} logo`;
+
+    let coinSpan = document.createElement("span");
+    coinSpan.id = `coin${i}`;
+    coinSpan.textContent = data[i].name;
+
+    logoDiv.appendChild(logoImg);
+    logoDiv.appendChild(coinSpan);
+
+    cellName.appendChild(logoDiv);
+    cellTicker.textContent = data[i].symbol;
+    cellPrice.textContent = formatNumber(
+      data[i].priceUsd,
+      data[i].priceUsd > 1 ? 2 : 4
+    );
+    cell24hr.textContent = formatNumber(data[i].changePercent24Hr, 2);
+    cellCap.textContent = `${formatNumber(
       data[i].marketCapUsd /
-        (data[i].marketCapUsd >= 1000000000 ? 1000000000 : 1000000)
-    ).toFixed(2);
-    document.getElementById(`bOrM${i}`).textContent =
-      data[i].marketCapUsd >= 1000000000 ? "B" : "M";
-    document.getElementById(`24hr${i}`).textContent = Number(
-      data[i].changePercent24Hr
-    ).toFixed(2);
+        (data[i].marketCapUsd >= 1000000000 ? 1000000000 : 1000000),
+      2
+    )}${data[i].marketCapUsd >= 1000000000 ? "B" : "M"}`;
+
     let percent = Number(data[i].changePercent24Hr).toFixed(2);
     if (percent > 0) {
-      document.getElementById(`change${i}`).style.background = "#39daa2";
+      cell24hr.style.background = "#39daa2";
     }
     if (percent < 0) {
-      document.getElementById(`change${i}`).style.background =
-        "rgb(254, 46, 46)";
+      cell24hr.style.background = "rgb(254, 46, 46)";
     }
-    let ticker = data[i].symbol;
-    document.getElementById(
-      `logo${i}`
-    ).src = `https://assets.coincap.io/assets/icons/${ticker.toLowerCase()}@2x.png`;
   }
 }
 
 getAssets();
 search();
-
 // function darkMode() {
 //   document.body.classList.toggle("dark-mode");
 //   document.querySelector("input").classList.toggle("dark-mode");
