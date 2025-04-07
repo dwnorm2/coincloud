@@ -24,15 +24,23 @@ input.addEventListener("keypress", function (event) {
 });
 
 function search() {
-  fetch(`https://api.coincap.io/v2/assets/${coinName}`)
-    .then((red) => red.json())
+  fetch(`https://rest.coincap.io/v3/assets/${coinName}`, {
+    headers: {
+      Authorization: `Bearer 73a828abcf14d386c1dcbe6a2146164e44773501136411c1060c8f3e6a3324e7`,
+    },
+  })
+    .then((response) => response.json())
     .then((data) => {
       if (data.data) {
         // Valid response for cryptocurrency name
         updateUI(data.data);
       } else {
         // Invalid response for cryptocurrency name, try searching by ticker
-        return fetch(`https://api.coincap.io/v2/assets?search=${coinName}`);
+        return fetch(`https://rest.coincap.io/v3/assets?search=${coinName}`, {
+          headers: {
+            Authorization: `Bearer 73a828abcf14d386c1dcbe6a2146164e44773501136411c1060c8f3e6a3324e7`,
+          },
+        });
       }
     })
     .then((secondResponse) => {
@@ -52,8 +60,6 @@ function search() {
     .catch((err) => {
       console.log(`error ${err}`);
     });
-
-  // setTimeout(search, 5000);
 }
 
 function updateUI(data) {
@@ -94,16 +100,18 @@ function formatNumber(value, decimalPlaces) {
 }
 
 function getAssets() {
-  fetch(`https://api.coincap.io/v2/assets`)
-    .then((red) => red.json())
+  fetch(`https://rest.coincap.io/v3/assets`, {
+    headers: {
+      Authorization: `Bearer 73a828abcf14d386c1dcbe6a2146164e44773501136411c1060c8f3e6a3324e7`,
+    },
+  })
+    .then((response) => response.json())
     .then((data) => {
       updateAssetsUI(data.data);
     })
     .catch((err) => {
       console.log(`error ${err}`);
     });
-
-  // setTimeout(search, 5000);
 }
 
 function updateAssetsUI(data) {
@@ -170,9 +178,3 @@ function updateAssetsUI(data) {
 
 getAssets();
 search();
-// function darkMode() {
-//   document.body.classList.toggle("dark-mode");
-//   document.querySelector("input").classList.toggle("dark-mode");
-// }
-
-// darkMode();
